@@ -11,8 +11,17 @@ world_stats = data["latest"]
 
 loc_data = data["locations"]
 
-country_data = []
+confirmed_data = []
+death_data = []
 
 for location in loc_data:
     #print(location["country"] + " " + str(location["coordinates"]))
-    
+    if(country == location["country"]):
+        confirmed_data.append(location["latest"]["confirmed"])
+        death_data.append(location["latest"]["deaths"])
+
+confirmed = sum(confirmed_data)
+deaths = sum(death_data)
+
+print(confirmed)
+print(deaths)
